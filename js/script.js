@@ -348,6 +348,7 @@ submit.addEventListener('click', (e) => {
         showError(cvvValidator(), cvvError);
     }
     // Call masterValidator function for checking if all information are valid
+    
     if(masterValidator() === false) {
         e.preventDefault();
     }
