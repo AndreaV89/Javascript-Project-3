@@ -34,9 +34,7 @@ const submit = document.querySelector('button[type="submit"]');
 /*******************/
 
 // Focus on the first field when the page load
-document.addEventListener('DOMContentLoaded', function() {
-    name.focus();
-});
+document.addEventListener('DOMContentLoaded', () => name.focus());
 
 // Hide the input field for "other job"
 otherJob.style.display = 'none';
@@ -66,7 +64,7 @@ emailError.style.display = 'none';
 const nameValidator = () => /^[a-z]+$/i.test(name.value);
 
 // Real time validator for name
-name.addEventListener('keyup', function() {
+name.addEventListener('keyup', () => {
     if(name.value === '') {
         nameError.style.display = 'block';
         nameError.innerText = 'Name field is empty';
@@ -82,7 +80,7 @@ name.addEventListener('keyup', function() {
 const emailValidator = () => /^[^@]+@[^@.]+\.[a-z]{2,3}$/i.test(email.value);
 
 // Real time validator for email
-email.addEventListener('keyup', function() {
+email.addEventListener('keyup', () => {
     if(email.value === '') {
         emailError.style.display = 'block';
         emailError.innerText = 'Email field is empty';
@@ -111,7 +109,7 @@ design.addEventListener('change', (e) => {
     if(e.target.value === "js puns") {
         // if "js puns" is selected "cornflowerblue", "darkslategrey" and "gold" is displayed
         color.style.display = 'block';
-        colorLabel.innerHTML = "Color:";
+        colorLabel.innerText = "Color:";
         document.querySelector('option[value="cornflowerblue"]').style.display = 'block';
         document.querySelector('option[value="cornflowerblue"]').setAttribute('selected', true);
         document.querySelector('option[value="darkslategrey"]').style.display = 'block';
@@ -156,8 +154,8 @@ activities.addEventListener('change', (e) => {
         total-= activityCost;
     }
     // Show the total
-    totalActivityCost.innerText = `Total: ${total}`;
-    // If it's equal to zero hite the text and show error message
+    totalActivityCost.innerText = `Total cost: ${total}`;
+    // If it's equal to zero hide the text and show error message
     if(total === 0) {
         activityError.style.display = 'block';
         totalActivityCost.style.display = 'none';
@@ -166,13 +164,15 @@ activities.addEventListener('change', (e) => {
         activityError.style.display = 'none';
     }
     // Check for the competing activities
-    for(i = 0; i < activitiesInput.length; i++) {
+    for(let i = 0; i < activitiesInput.length; i++) {
         const currentActivity = activitiesInput[i].getAttribute('data-day-and-time');
         if(currentActivity === activityDate && activitiesInput[i] != e.target) {
             if(e.target.checked === true) {
                 activitiesInput[i].setAttribute('disabled', true);
+                activitiesInput[i].parentNode.style.color = 'rgba(6, 49, 68, 0.1)';
             } else if(e.target.checked === false){
                 activitiesInput[i].removeAttribute('disabled');
+                activitiesInput[i].parentNode.style.color = '#000';
             }
         }
     }
@@ -255,7 +255,7 @@ cvvError.style.display = 'none';
 const ccNumValidator = () => /^\d{13,16}$/.test(ccNum.value);
 
 // Real time validator for Card Number
-ccNum.addEventListener('keyup', function() {
+ccNum.addEventListener('keyup', () => {
     if(ccNum.value === '') {
         // If field is empty
         ccNumError.style.display = 'block';
@@ -273,7 +273,7 @@ ccNum.addEventListener('keyup', function() {
 const zipValidator = () => /^\d{5}$/.test(zipCode.value);
 
 // Real time validator for Zip Code
-zipCode.addEventListener('keyup', function() {
+zipCode.addEventListener('keyup', () => {
     if(zipCode.value === '') {
         // If field is empty
         zipError.style.display = 'block';
@@ -291,7 +291,7 @@ zipCode.addEventListener('keyup', function() {
 const cvvValidator = () => /^\d{3}$/.test(cvv.value);
 
 // Real time validator for CVV
-cvv.addEventListener('keyup', function() {
+cvv.addEventListener('keyup', () => {
     if(cvv.value === '') {
         // If field is empty
         cvvError.style.display = 'block';
