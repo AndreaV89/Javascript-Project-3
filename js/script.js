@@ -53,8 +53,11 @@ const nameError = document.createElement('P');
 const emailError = document.createElement('P');
 nameError.innerText = 'Name field is empty';
 emailError.innerText = 'Email field is empty';
+nameError.style.fontWeight = 'bold';
+// nameError.style.textShadow = '2px 2px 4px #000000';
 nameError.style.color = '#FF5A46';
 emailError.style.color = '#FF5A46';
+emailError.style.fontWeight = 'bold';
 name.parentNode.insertBefore(nameError, name);
 email.parentNode.insertBefore(emailError, email);
 nameError.style.display = 'none';
@@ -70,7 +73,7 @@ name.addEventListener('keyup', () => {
         nameError.innerText = 'Name field is empty';
     } else if(nameValidator() === false) {
         nameError.style.display = 'block';
-        nameError.innerText = 'Please insert a valid Name.';
+        nameError.innerText = 'Please insert a valid Name';
     } else {
         nameError.style.display = 'none';
     }
@@ -86,7 +89,7 @@ email.addEventListener('keyup', () => {
         emailError.innerText = 'Email field is empty';
     } else if(emailValidator() === false) {
         emailError.style.display = 'block';
-        emailError.innerText = 'Please insert a valid email address.';
+        emailError.innerText = 'Please insert a valid email address';
     } else {
         emailError.style.display = 'none';
     }
@@ -102,7 +105,7 @@ selectTheme.style.display = 'none';
 
 // Hide color options
 color.style.display = 'none';
-colorLabel.innerHTML = "Please select a T-shirt theme.";
+colorLabel.innerHTML = "Please select a T-shirt theme";
 
 // Add event listener to "design" dropdown menu and update "color" dropdown menu
 design.addEventListener('change', (e) => {
@@ -180,8 +183,9 @@ activities.addEventListener('change', (e) => {
 
 // Create Activity Validation Text
 const activityError = document.createElement('P');
-activityError.innerText = 'You must select at least one activity.';
+activityError.innerText = 'You must select at least one activity';
 activityError.style.color = '#FF5A46';
+activityError.style.fontWeight = 'bold';
 activities.parentNode.insertBefore(activityError, activities.nextSibling);
 activityError.style.display = 'none';
 
@@ -242,8 +246,11 @@ ccNumError.innerText = 'Card Number field is empty';
 zipError.innerText = 'Zip Code field is empty';
 cvvError.innerText = 'CVV field is empty';
 ccNumError.style.color = '#FF5A46';
+ccNumError.style.fontWeight = 'bold';
 zipError.style.color = '#FF5A46';
+zipError.style.fontWeight = 'bold';
 cvvError.style.color = '#FF5A46';
+cvvError.style.fontWeight = 'bold';
 creditCard.parentNode.insertBefore(ccNumError, creditCard);
 creditCard.parentNode.insertBefore(zipError, creditCard);
 creditCard.parentNode.insertBefore(cvvError, creditCard);
@@ -263,7 +270,7 @@ ccNum.addEventListener('keyup', () => {
     } else if(ccNumValidator() === false) {
         // If the format is invalid
         ccNumError.style.display = 'block';
-        ccNumError.innerText = 'Card Number must be a number between 13 and 16 digits.';
+        ccNumError.innerText = 'Card Number must be a number between 13 and 16 digits';
     } else {
         ccNumError.style.display = 'none';
     }
@@ -281,7 +288,7 @@ zipCode.addEventListener('keyup', () => {
     } else if(zipValidator() === false) {
         // If the format is invalid
         zipError.style.display = 'block';
-        zipError.innerText = 'Zip Code must be a 5 digits number.';
+        zipError.innerText = 'Zip Code must be a 5 digits number';
     } else {
         zipError.style.display = 'none';
     }
@@ -299,7 +306,7 @@ cvv.addEventListener('keyup', () => {
     } else if(cvvValidator() === false) {
         // If the format is invalid
         cvvError.style.display = 'block';
-        cvvError.innerText = 'CVV must be a 3 digits number.';
+        cvvError.innerText = 'CVV must be a 3 digits number';
     } else {
         cvvError.style.display = 'none';
     }
